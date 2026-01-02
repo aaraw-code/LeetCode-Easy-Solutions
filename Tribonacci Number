@@ -1,0 +1,31 @@
+#Solution using Recursion
+
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        temp = {}
+
+        def solve(n):
+            if n == 0:
+                return 0 
+            if n <= 2:
+                return 1
+            if n in temp:
+                return temp[n]
+            temp[n] = solve(n-1)+solve(n-2)+solve(n-3)
+            return temp[n]
+        return solve(n)
+
+#solution Without using recursion
+
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        
+        if n == 0:
+            return 0
+        elif n <= 2:
+            return 1
+
+        a,b,c = 0,1,1
+        for _ in range(3,n+1):
+            a,b,c = b,c,a+b+c
+        return c
