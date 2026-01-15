@@ -10,4 +10,16 @@ class Solution:
         for i in range(l//2):
             curr = curr.next
         return curr
-        
+
+
+#2nd Way to implement
+
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow = head
+        fast = head
+
+        while fast!=None and fast.next!=None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
