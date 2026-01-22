@@ -13,7 +13,7 @@ class MyStack:
 
         top_element = self.queue1.pop(0)
 
-        while len(self.queue2)>1:
+        while self.queue2:
             self.queue1.append(self.queue2.pop(0))
         return top_element
 
@@ -22,4 +22,4 @@ class MyStack:
         
 
     def empty(self) -> bool:
-        return self.queue1 == 0
+        return len(self.queue1) == 0
