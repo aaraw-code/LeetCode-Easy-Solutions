@@ -1,0 +1,16 @@
+class Solution:
+    def __init__(self):
+        self.ans = True
+    def maxdepth(self,root):
+        if root is None:
+            return 0
+        leftheight = self.maxdepth(root.left)
+        rightheight = self.maxdepth(root.right)
+        if abs(leftheight-rightheight) > 1:
+            self.ans = False
+
+        return max(leftheight,rightheight) + 1
+        
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        self.maxdepth(root)
+        return self.ans
