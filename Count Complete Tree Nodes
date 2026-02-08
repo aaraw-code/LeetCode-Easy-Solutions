@@ -1,0 +1,19 @@
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        
+        left_h = self.height(root.left)
+        right_h = self.height(root.right)
+
+        if left_h == right_h:
+            return (2**left_h) + self.countNodes(root.right)
+        else:
+            return (2**right_h) + self.countNodes(root.left)
+    def height(self,node):
+        h = 0
+        while node:
+            h+=1
+            #only left because in complete binary tree left side have a maximum height
+            node = node.left 
+        return h
