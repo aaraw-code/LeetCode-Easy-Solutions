@@ -12,6 +12,7 @@ class Solution:
         candidate = None
         count = 0
         for num in nums:
+            # If count becomes 0, choose new candidate
             if count == 0:
                 candidate = num
             if num == candidate:
