@@ -10,3 +10,15 @@ class Solution:
                 ans.append(nums[i])
 
         return ans[0]
+
+
+## By XOR method
+#a ^ a = 0
+#a ^ 0 = a
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        result = 0
+        for num in nums:
+            result ^= num
+        return result
