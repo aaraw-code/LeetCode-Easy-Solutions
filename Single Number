@@ -1,0 +1,12 @@
+##Array Simulation / Brute Force using List##
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = []
+        for i in range(len(nums)):
+            
+            if nums[i] in ans:
+                ans.remove(nums[i])
+            else:
+                ans.append(nums[i])
+
+        return ans[0]
