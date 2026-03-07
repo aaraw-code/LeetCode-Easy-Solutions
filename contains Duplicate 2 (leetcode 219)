@@ -1,3 +1,4 @@
+# implement by sliding window #
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         
@@ -10,4 +11,19 @@ class Solution:
 
             if len(window) > k:
                 window.remove(nums[i-k])
+        return False
+
+
+## Approach: Brute Force (check all pairs for duplicates within k distance); This solution gives TLE on large inputs on LeetCode ##
+
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        
+        n = len(nums)
+        for i in range(n):
+            for j in range(i+1,n):
+
+                if nums[i] == nums[j] and abs(i-j) <= k:
+                    return True
+                
         return False
